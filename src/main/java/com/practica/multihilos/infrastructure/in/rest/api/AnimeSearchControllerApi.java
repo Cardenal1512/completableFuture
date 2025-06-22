@@ -13,17 +13,26 @@ import java.util.List;
 @Tag(name = "Anime", description = "Operaciones relacionadas con la búsqueda de anime")
 public interface AnimeSearchControllerApi {
 
-    @Operation(
-            summary = "Buscar anime por nombre",
-            description = "Realiza una búsqueda de animes en MyAnimeList en base a un término de consulta"
-    )
-    @GetMapping("/api/anime/search")
-    ResponseEntity<List<Anime>> searchAnime(
-            @Parameter(description = "Texto de búsqueda", example = "one piece")
-            @RequestParam String query,
+  @Operation(
+      summary = "Buscar anime por nombre",
+      description =
+          "Realiza una búsqueda de animes en MyAnimeList en base a un término de consulta")
+  @GetMapping("/api/anime/search")
+  ResponseEntity<List<Anime>> searchAnime(
+      @Parameter(description = "Texto de búsqueda", example = "one piece") @RequestParam
+          String query,
+      @Parameter(description = "Número máximo de resultados", example = "5")
+          @RequestParam(defaultValue = "5")
+          int limit);
 
-            @Parameter(description = "Número máximo de resultados", example = "5")
-            @RequestParam(defaultValue = "5") int limit
-    );
+  @Operation(
+      summary = "Buscar múltiples animes en paralelo",
+      description = "Realiza búsquedas simultáneas de varios títulos de anime en MyAnimeList")
+  @GetMapping("/api/anime/search-multiple")
+  ResponseEntity<List<Anime>> searchMultipleAnimes(
+      @Parameter(
+              description = "Lista de títulos a buscar",
+              example = "[\"One Piece\", \"Naruto\", \"Bleach\"]")
+          @RequestParam
+          List<String> titles);
 }
-

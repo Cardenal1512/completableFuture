@@ -12,11 +12,16 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class AnimeSearchController implements AnimeSearchControllerApi {
-    private final SearchAnimeUseCase searchAnimeUseCase;
+  private final SearchAnimeUseCase searchAnimeUseCase;
 
-    @Override
-    public ResponseEntity<List<Anime>> searchAnime(String query, int limit) {
-        List<Anime> result = searchAnimeUseCase.search(query, limit);
-        return ResponseEntity.ok(result);
-    }
+  @Override
+  public ResponseEntity<List<Anime>> searchAnime(String query, int limit) {
+    List<Anime> result = searchAnimeUseCase.search(query, limit);
+    return ResponseEntity.ok(result);
+  }
+
+  @Override
+  public ResponseEntity<List<Anime>> searchMultipleAnimes(List<String> titles) {
+    return ResponseEntity.ok(searchAnimeUseCase.searchMultiple(titles));
+  }
 }

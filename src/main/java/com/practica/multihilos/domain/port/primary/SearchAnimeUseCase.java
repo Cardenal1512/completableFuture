@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface SearchAnimeUseCase {
     List<Anime> search(String query, int limit);
+    List<Anime> searchMultiple(List<String> titles);
 }
