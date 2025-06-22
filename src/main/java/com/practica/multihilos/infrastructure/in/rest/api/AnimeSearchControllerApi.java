@@ -1,6 +1,6 @@
 package com.practica.multihilos.infrastructure.in.rest.api;
 
-import com.practica.multihilos.infrastructure.out.client.myanimelist.dto.AnimeDto;
+import com.practica.multihilos.domain.model.Anime;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -18,7 +18,7 @@ public interface AnimeSearchControllerApi {
             description = "Realiza una búsqueda de animes en MyAnimeList en base a un término de consulta"
     )
     @GetMapping("/api/anime/search")
-    ResponseEntity<List<AnimeDto>> searchAnime(
+    ResponseEntity<List<Anime>> searchAnime(
             @Parameter(description = "Texto de búsqueda", example = "one piece")
             @RequestParam String query,
 

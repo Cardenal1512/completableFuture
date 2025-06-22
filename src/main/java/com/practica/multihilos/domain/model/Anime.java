@@ -1,9 +1,9 @@
-package com.practica.multihilos.infrastructure.out.client.myanimelist.dto;
+package com.practica.multihilos.domain.model;
 
 import lombok.Data;
 
 @Data
-public class AnimeDto {
+public class Anime {
     private Integer id;
     private String title;
     private String imageUrl;

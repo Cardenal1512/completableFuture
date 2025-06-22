@@ -1,9 +1,9 @@
 package com.practica.multihilos.domain.port.secondary;
 
-import com.practica.multihilos.infrastructure.out.client.myanimelist.dto.AnimeDto;
+import com.practica.multihilos.domain.model.Anime;
 
 import java.util.List;
 
 public interface AnimeSearchPort {
-    List<AnimeDto> searchAnime(String query, int limit);
+    List<Anime> searchAnime(String query, int limit);
 }

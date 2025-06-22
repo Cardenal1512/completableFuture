@@ -1,7 +1,7 @@
 package com.practica.multihilos.infrastructure.out.client.myanimelist;
 
 import com.practica.multihilos.domain.port.secondary.AnimeSearchPort;
-import com.practica.multihilos.infrastructure.out.client.myanimelist.dto.AnimeDto;
+import com.practica.multihilos.domain.model.Anime;
 import com.practica.multihilos.infrastructure.out.client.myanimelist.dto.AnimeSearchResponse;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
@@ -21,7 +21,7 @@ public class MyAnimeListApiClient implements AnimeSearchPort {
   }
 
   @Override
-  public List<AnimeDto> searchAnime(String query, int limit) {
+  public List<Anime> searchAnime(String query, int limit) {
     String url = "https://api.myanimelist.net/v2/anime?q=" + query + "&limit=" + limit;
 
     try {
@@ -31,7 +31,7 @@ public class MyAnimeListApiClient implements AnimeSearchPort {
       // Aquí podrías mapear la respuesta JSON a un DTO si prefieres
       return response.getBody().getData().stream()
               .map(data -> {
-                AnimeDto dto = new AnimeDto();
+                Anime dto = new Anime();
                 dto.setId(data.getNode().getId());
                 dto.setTitle(data.getNode().getTitle());
                 dto.setImageUrl(data.getNode().getMain_picture().getMedium());
