@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.practica</groupId>
 	<artifactId>multihilos</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>multihilos</name>
-	<description>Proyecto de practica para repasar multihilos y completableFuture</description>
+	<description>Proyecto de practica para repasar multihilos y completableFuture version basica</description>
 	<url/>
 	<licenses>
 		<license/>
