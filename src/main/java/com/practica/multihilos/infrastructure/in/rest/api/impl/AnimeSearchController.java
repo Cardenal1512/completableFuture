@@ -1,6 +1,8 @@
 package com.practica.multihilos.infrastructure.in.rest.api.impl;
 
+import com.practica.multihilos.domain.model.AnimeDetail;
 import com.practica.multihilos.domain.port.primary.SearchAnimeUseCase;
+import com.practica.multihilos.domain.port.primary.SearchDetailedAnimeUseCase;
 import com.practica.multihilos.infrastructure.in.rest.api.AnimeSearchControllerApi;
 import com.practica.multihilos.domain.model.Anime;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AnimeSearchController implements AnimeSearchControllerApi {
   private final SearchAnimeUseCase searchAnimeUseCase;
+  private final SearchDetailedAnimeUseCase searchDetailedAnimeUseCase;
 
   @Override
   public ResponseEntity<List<Anime>> searchAnime(String query, int limit) {
@@ -23,5 +26,10 @@ public class AnimeSearchController implements AnimeSearchControllerApi {
   @Override
   public ResponseEntity<List<Anime>> searchMultipleAnimes(List<String> titles) {
     return ResponseEntity.ok(searchAnimeUseCase.searchMultiple(titles));
+  }
+
+  @Override
+  public ResponseEntity<List<AnimeDetail>> searchDetailedAnimes(List<String> titles) {
+    return ResponseEntity.ok(searchDetailedAnimeUseCase.searchDetailed(titles));
   }
 }

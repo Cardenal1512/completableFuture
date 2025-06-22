@@ -1,6 +1,7 @@
 package com.practica.multihilos.infrastructure.in.rest.api;
 
 import com.practica.multihilos.domain.model.Anime;
+import com.practica.multihilos.domain.model.AnimeDetail;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -35,4 +36,18 @@ public interface AnimeSearchControllerApi {
               example = "[\"One Piece\", \"Naruto\", \"Bleach\"]")
           @RequestParam
           List<String> titles);
+
+
+    @Operation(
+            summary = "Buscar múltiples animes con detalles",
+            description = "Realiza búsquedas simultáneas de varios títulos de anime y obtiene información detallada de cada uno"
+    )
+    @GetMapping("/api/anime/search-detailed")
+    ResponseEntity<List<AnimeDetail>> searchDetailedAnimes(
+            @Parameter(
+                    description = "Lista de títulos a buscar",
+                    example = "[\"One Piece\", \"Naruto\", \"Bleach\"]")
+            @RequestParam
+            List<String> titles
+    );
 }
