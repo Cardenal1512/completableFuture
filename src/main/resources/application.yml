@@ -1,0 +1,10 @@
+mal:
+  client-id: c1a3f963ed0ef4c0676e60aed8c6db9f
+  client-secret: c9dae48c9349363e453d140e2ceb6ced8b5c89bfbf34cafd63326fb2cdcb05d6
+  redirect-uri: http://localhost:8080/callback
+  code-verifier: A1b2C3d4E5f6G7h8I9j0K1l2M3n4O5p6Q7r8S9t0U1v2W3x4Y5z6A7b8C9
+  url-token: https://myanimelist.net/v1/oauth2/token
+
+
+
+
