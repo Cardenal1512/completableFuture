@@ -1,0 +1,6 @@
+mal:
+  client-id: ${MAL_CLIENT_ID}
+  client-secret: ${MAL_CLIENT_SECRET}
+  redirect-uri: ${MAL_REDIRECT_URI}
+  code-verifier: ${MAL_CODE_VERIFIER}
+  url-token: https://myanimelist.net/v1/oauth2/token
